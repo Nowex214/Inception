@@ -11,7 +11,6 @@ COPY ./conf/init.sql /init.sql
 
 RUN mysql_install_db --user=mysql --datadir=/var/lib/mysql
 
-# IMPORTANT : exécuter init.sql à la main (Alpine ne le fait pas automatiquement)
 RUN mysqld --user=mysql --datadir=/var/lib/mysql --skip-networking --socket=/run/mysqld/mysqld.sock & \
     sleep 5 && \
     mysql --protocol=socket -u root < /init.sql && \

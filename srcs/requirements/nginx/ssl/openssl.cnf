@@ -1,0 +1,8 @@
+[req]
+distinguished_name = req_distinguished_name
+req_extensions = SAN
+
+[req_distinguished_name]
+
+[SAN]
+subjectAltName = DNS:ehenry.42.fr, DNS:www.ehenry.42.fr

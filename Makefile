@@ -1,22 +1,17 @@
-NAME = inception
-COMPOSE = docker compose -f docker-compose.yml
-
-all: up
-
-up:
-	$(COMPOSE) up --build -d
+all:
+	@docker compose -f ./srcs/docker-compose.yml up -d --build
 
 down:
-	$(COMPOSE) down
+	@docker compose -f ./srcs/docker-compose.yml down
+
+re:
+	@docker compose -f srcs/docker-compose.yml up -d --build
 
 clean:
-	$(COMPOSE) down --rmi all --remove-orphans
+	@docker stop $$(docker ps -qa);\
+	docker rm $$(docker ps -qa);\
+	docker rmi -f $$(docker images -qa);\
+	docker volumes rm $$(docker volume ls -q);\
+	docker network rm $$(docker network ls -q);\
 
-fclean:
-	$(COMPOSE) down -v --rmi all --remove-orphans
-	docker volume prune -f
-	docker volume prune -af
-
-re: fclean up
-
-.PHONY: all up down clean fclean re
+.PHONY: all re down clean
