@@ -63,6 +63,40 @@ The storage space is fully managed by Docker (in `var/lib/volumes/` on the host)
 
 Advantages: Fully manage by Docker, independent of the host's file system, easier to back up and is the official recommended method for data persistence in production.
 # Instructions:
+## Requirements:
+Before starting the project, make sure that the following elements are installed on the machine:
 
+- Docker and Docker Compose.
+- Make
+
+### Install requirements:
+`sudo apt update`
+
+`sudo apt install docker.io docker-compose`
+
+## Compilation and Execution:
+`make all` to make all the project, that will build up all the containers.
+
+`make down` to deconstruct all the containers.
+
+`make clean` to clean and remove all the containers.
+
+### Connection:
+Wordpress site: `http://ehenry.42.fr` or `https://ehenry.42.fr`
+
+Administration panel: `https://ehenry.42.fr/wp-admin`
 
 # Resources:
+### Internet ressource:
+- Docker Hub: used as a main resource to find the basic images (Alpine) and consult documentation to correctly configure the environments of each service.
+
+- Stack Overflow: used to fix some issues with some Dockerfiles.
+
+### AI:
+
+- ChatGPT : used to helped me solve an issue with limited memory allocated to PHP.
+I used it to the sed commadn to modify the php.init file during the imagine build.
+
+`RUN sed -i 's/memory_limit = .*/memory_limit = 512M/' /etc/php81/php.ini`
+
+IA allowed me to find the right regular expression to target and replace the default value with 512M, and the correct path for PHP 8.1.
