@@ -95,7 +95,7 @@ Administration panel: `https://ehenry.42.fr/wp-admin`
 ### AI:
 
 - ChatGPT : used to helped me solve an issue with limited memory allocated to PHP.
-I used it to the sed commadn to modify the php.init file during the imagine build.
+I used it to the sed command to modify the php.init file during the imagine build.
 
 `RUN sed -i 's/memory_limit = .*/memory_limit = 512M/' /etc/php81/php.ini`
 
