@@ -3,26 +3,26 @@ This project has been created as part of the 42 curriculum by ehenry.
 # Description:
 
 ## What is Docker ?
-Docker is a platform that allows to developp, deploy and execute applications in an isolated environment that is called containers.
-Instead of a classic material virtualization, Docker uses a virtualization at the level of system exploitation, allowing packed applications with all their dependencies (library, code, tools,...) but shared the same kernel of the host exploitation system.
+Docker is a platform that allows to develop, deploy and execute applications in isolated environment that is called containers.
+Instead of a traditional material virtualization, Docker uses a virtualization at the level of the exploitation system, allowing applications with all their dependencies (library, code, tools,...) but shared the same kernel of the host exploitation system.
 The containers are all lightweight, fast and portable.
 
 ## Virtual machines vs Docker
 ### Virtual machines:
-VM is a complete computer physics simulated. It must be used with two things; Hypervisor (Oracle VirtualBox, VMware,..) and a complete exploitation system guest (Linux, MacOS, Windows). On this all the dependencies and applications can run.
+VM is a complete computer simulated in a virtual manner. It must be rely on two things; Hypervisor (Oracle VirtualBox, VMware,..) and a complete exploitation system guest (Linux, MacOS, Windows). Based on this, all the dependencies and applications can run.
 
-Disadvantages: heavyweight (several Go), not fast to launch and consuming a lot of CPU/RAM resources.
+Disadvantages: heavyweight (multiple Go needed), not fast to launch and consuming a lot of CPU/RAM resources.
 
 ### Docker:
 No virtualization of the materials but 'isolated' the process.
-Several containers shared the same OS as the host machine through the Docker motor.
+Several containers shared the same OS as the host machine through the Docker engine.
 
-Advantages: lightweight (likely Mo), fast launch and allow running many applications on the same machine with fewer resources.
+Advantages: lightweight (likely few Mo), fast launch and allow running many applications on the same machine with fewer resources.
 
 - Isolated the process : Docker uses native features of the Linux kernel partition applications.
 
-	- Namespaces: They created parts for each container. It sees only its own PID, network and file system.
-	- Control Groups: They limit the hardware resources (CPU, memory) that a container can consume, and ensure that a container doesn't saturate the host machine.
+	- Namespaces: They create parts for each container. It sees only its own PID, network and file system.
+	- Control Groups: They limit the hardware resources (CPU, memory) that a container can consume, and ensure that a container doesn't overconsume the host machine.
 	- Layered file system: Each container has its own image (dependencies, applications) separate from the host.
 
 
@@ -52,7 +52,7 @@ Docker creates an internal and isolated virtual network. Each container receives
 Advantages: Total isolation. Containers can communicate with each other in a secure way without being exposed outside. Only the container serving as an entry point (NGINX) will need a port mapped to the host to be used from your browser. 
 
 ## Docker Volumes vs Bind Mounts:
-In Docker, containers are epheneral. If a container is destroyed, its internal data is too. To persist the database or Wordpress files, you need to store the data outside the container.
+In Docker, containers are ephemeral. If a container is destroyed, its internal data is too. To persist the database or Wordpress files, you need to store the data outside the container.
 ### Bind Mounts:
 Link a specific and absolute folder of your host machine (ex: `/home/user/data`) to a folder in a container.
 
